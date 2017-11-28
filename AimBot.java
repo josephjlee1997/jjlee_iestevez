@@ -41,31 +41,31 @@ public class AimBot extends AdvancedRobot
 	public void onScannedRobot(ScannedRobotEvent e) 
 	{
 		// Will strafe robots from an angle
-      	setTurnRight(e.getBearing()+90-30 * movementDirection);
+      		setTurnRight(e.getBearing()+90-30 * movementDirection);
 
-    	// If statement should read energy drops and move away accordingly
+    		// If statement should read energy drops and move away accordingly
    		double scannedEnergy = enemyEnergy-e.getEnergy();
 	
 		if (scannedEnergy>0 && scannedEnergy<=3) 
 		{
          	movementDirection = -movementDirection;
          	setAhead((e.getDistance()/4+25)) ;
-     	}
+     		}
 		
 		// Robot will fire accordingly to how far other robots are
 		gunDirection = -gunDirection;
-    	setTurnGunRight(99999*gunDirection);
+    		setTurnGunRight(99999*gunDirection);
 
 		distance = e.getDistance();
 		if (distance < 50) 
 		{
       		fire(10);
-    	} 
+    		} 
 
    	 	else if (distance < 100) 
 		{
      		fire(2);
-    	} 
+    		} 
 
    		else if (distance < 150) 
 		{
